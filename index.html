@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notre road trip ✦ 2–11 août</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FDF6F4;--cream-2:#F8ECEC;--plum:#40263C;--plum-soft:#6E5266;
+    --rose:#E795B4;--rose-deep:#D46E97;--lav:#C4B2E6;--peach:#FBC4A2;--mint:#A6DCC5;
+    --line:#EAD7DC;--card:#FFFFFF;--shadow:0 12px 30px -14px rgba(120,60,90,.28);
+    --iris:linear-gradient(100deg,#F5A9C6 0%,#C9B4EC 30%,#FBC7A4 55%,#A9DECB 80%,#F5A9C6 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var(--plum);line-height:1.55;-webkit-font-smoothing:antialiased;padding-bottom:4rem}
+  .wrap{max-width:680px;margin:0 auto;padding:0 20px}
+
+  .hero{position:relative;overflow:hidden;padding:52px 20px 40px;text-align:center;
+    background:radial-gradient(120% 90% at 15% 0%,#FBE6EE 0%,transparent 55%),radial-gradient(120% 90% at 90% 10%,#EDE6FB 0%,transparent 55%),var(--cream)}
+  .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent)}
+  .eyebrow{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;font-weight:700;color:var(--rose-deep);margin-bottom:14px}
+  h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2.4rem,9vw,3.6rem);line-height:1.02;letter-spacing:-.01em;
+    background:var(--iris);background-size:220% 220%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:shimmer 9s ease-in-out infinite}
+  h1 .yr{display:block;font-size:.36em;font-style:italic;font-weight:500;letter-spacing:.02em;margin-top:.4em}
+  @keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+  .subtitle{margin-top:16px;color:var(--plum-soft);font-size:1rem;font-weight:500}
+  .subtitle b{color:var(--plum);font-weight:700}
+  .countdown{display:inline-flex;align-items:baseline;gap:9px;margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:100px;padding:9px 20px;box-shadow:var(--shadow)}
+  .countdown .num{font-family:'Fraunces',serif;font-weight:700;font-size:1.5rem;color:var(--rose-deep)}
+  .countdown .lbl{font-size:.82rem;color:var(--plum-soft);font-weight:600}
+
+  .progress-box{margin:26px auto 6px;max-width:680px;padding:0 20px}
+  .progress-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:9px}
+  .progress-head span{font-size:.82rem;font-weight:700;color:var(--plum-soft);letter-spacing:.02em}
+  .track{height:12px;border-radius:100px;background:var(--cream-2);overflow:hidden;box-shadow:inset 0 1px 3px rgba(120,60,90,.1)}
+  .fill{height:100%;width:0;border-radius:100px;background:var(--iris);background-size:200% 200%;animation:shimmer 6s ease-in-out infinite;transition:width .5s cubic-bezier(.4,1.2,.5,1)}
+
+  .tabs{position:sticky;top:0;z-index:20;background:rgba(253,246,244,.92);backdrop-filter:blur(8px);padding:16px 0 12px;margin-top:20px}
+  .tabs-inner{display:flex;gap:8px;overflow-x:auto;padding:0 20px;max-width:680px;margin:0 auto;scrollbar-width:none}
+  .tabs-inner::-webkit-scrollbar{display:none}
+  .tab{flex:0 0 auto;border:1px solid var(--line);background:#fff;color:var(--plum-soft);border-radius:100px;padding:9px 15px;font-family:'Nunito';font-weight:700;font-size:.88rem;cursor:pointer;transition:.18s;white-space:nowrap}
+  .tab .d{font-family:'Fraunces',serif;font-weight:600;margin-right:5px}
+  .tab:hover{border-color:var(--rose)}
+  .tab[aria-selected="true"]{background:var(--plum);color:#fff;border-color:var(--plum)}
+  .tab:focus-visible{outline:2px solid var(--rose-deep);outline-offset:2px}
+
+  .day{padding-top:22px}
+  .day-title{font-family:'Fraunces',serif;font-weight:600;font-size:1.5rem;margin-bottom:2px;line-height:1.15}
+  .day-sub{color:var(--plum-soft);font-size:.9rem;font-weight:600;margin-bottom:20px}
+  .day-sub .dot{color:var(--rose)}
+
+  .timeline{position:relative;padding-left:26px}
+  .timeline::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--rose),var(--lav),var(--mint))}
+  .day-optional-label{font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;font-weight:800;color:var(--plum-soft);margin:24px 0 14px;padding-top:18px;border-top:1px dashed var(--line)}
+  .timeline-optional::before{background:repeating-linear-gradient(var(--line),var(--line) 6px,transparent 6px,transparent 12px)}
+  .timeline-optional .card{border-style:dashed;opacity:.9}
+  .stop{position:relative;margin-bottom:16px}
+  .stop::before{content:"";position:absolute;left:-25px;top:22px;width:12px;height:12px;border-radius:50%;background:#fff;border:2.5px solid var(--rose-deep);box-shadow:0 0 0 4px var(--cream)}
+  .stop.done::before{background:var(--mint);border-color:var(--mint)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 16px 14px;box-shadow:var(--shadow);transition:.2s}
+  .card:has(.chk:checked){background:#FBFAF7;border-color:var(--mint)}
+  .card-top{display:flex;align-items:flex-start;gap:12px}
+  .chk{appearance:none;-webkit-appearance:none;flex:0 0 auto;margin-top:3px;width:24px;height:24px;border-radius:8px;border:2px solid var(--rose);cursor:pointer;display:grid;place-content:center;transition:.15s;background:#fff}
+  .chk:checked{background:var(--mint);border-color:var(--mint)}
+  .chk:checked::after{content:"✓";color:#2c6b52;font-weight:800;font-size:.95rem}
+  .chk:focus-visible{outline:2px solid var(--rose-deep);outline-offset:2px}
+  .headings{flex:1;min-width:0}
+  .time{font-size:.76rem;font-weight:800;letter-spacing:.06em;color:var(--rose-deep);text-transform:uppercase}
+  .name{font-family:'Fraunces',serif;font-weight:600;font-size:1.16rem;line-height:1.2;margin-top:2px}
+  .card.done .name{text-decoration:line-through;text-decoration-color:var(--mint);text-decoration-thickness:2px;color:var(--plum-soft)}
+  .tag{display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:3px 9px;border-radius:100px;margin-top:8px;margin-right:5px}
+  .tag.romantic{background:#FBE6EE;color:#B84e7c}
+  .tag.cine{background:#EDE6FB;color:#6b4fb0}
+  .tag.festival{background:#FDEBD8;color:#b5701f}
+  .tag.food{background:#E6F4EC;color:#2f7d5b}
+  .tag.spark{background:#E3EEFB;color:#3f66b3}
+  .tag.whimsy{background:#EDE6FB;color:#6b4fb0}
+  .tag.free{background:#FDEBD8;color:#b5701f}
+  .tag.claude{background:#E3EEFB;color:#3f66b3}
+  .note{margin-top:10px;font-size:.92rem;color:var(--plum-soft);font-weight:500}
+  .meta{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+  .transit{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:700;color:var(--plum-soft);background:var(--cream-2);border-radius:100px;padding:5px 11px}
+  .transit b{color:var(--plum)}
+  .maplink{display:inline-flex;align-items:center;gap:5px;font-size:.78rem;font-weight:800;color:var(--rose-deep);text-decoration:none;border:1px solid var(--line);border-radius:100px;padding:5px 11px;transition:.15s}
+  .maplink:hover{background:var(--rose);color:#fff;border-color:var(--rose)}
+  .booklink{display:inline-flex;align-items:center;gap:5px;font-size:.78rem;font-weight:800;color:#fff;text-decoration:none;background:var(--plum);border:1px solid var(--plum);border-radius:100px;padding:5px 11px;transition:.15s}
+  .booklink:hover{background:#2c1a29}
+
+  .festival{position:relative;overflow:hidden;border-radius:20px;padding:20px;margin:8px 0 26px;color:#fff;background:linear-gradient(115deg,#D46E97,#8f6bc4 55%,#e39a63);box-shadow:var(--shadow)}
+  .festival .fx{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;font-weight:800;opacity:.9}
+  .festival h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.32rem;margin:4px 0 6px}
+  .festival p{font-size:.9rem;font-weight:500;opacity:.96}
+
+  .section-label{font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;font-weight:800;color:var(--rose-deep);margin:34px 0 14px;text-align:center}
+
+  .subtabs{display:flex;gap:7px;overflow-x:auto;padding-bottom:2px;margin-bottom:14px;scrollbar-width:none}
+  .subtabs::-webkit-scrollbar{display:none}
+  .subtab{flex:0 0 auto;border:1px solid var(--line);background:#fff;color:var(--plum-soft);border-radius:100px;padding:7px 14px;font-family:'Nunito';font-weight:700;font-size:.82rem;cursor:pointer;transition:.18s;white-space:nowrap}
+  .subtab:hover{border-color:var(--rose)}
+  .subtab[aria-selected="true"]{background:var(--plum);color:#fff;border-color:var(--plum)}
+  .bonus-grid{display:grid;gap:14px}
+  .bonus-grid .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 16px 14px;box-shadow:var(--shadow)}
+  .bonus-grid .card:has(.chk:checked){background:#FBFAF7;border-color:var(--mint)}
+  .bonus-grid .name{font-family:'Fraunces',serif;font-weight:600;font-size:1.12rem;line-height:1.2}
+  .bonus-grid .card:has(.chk:checked) .name{text-decoration:line-through;text-decoration-color:var(--mint);text-decoration-thickness:2px;color:var(--plum-soft)}
+  .info{display:grid;gap:12px}
+  .info-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:15px 16px;box-shadow:var(--shadow)}
+  .info-card h4{font-family:'Fraunces',serif;font-weight:600;font-size:1.02rem;display:flex;gap:8px;align-items:center}
+  .info-card p{font-size:.88rem;color:var(--plum-soft);font-weight:500;margin-top:5px}
+  .info-map{margin-top:11px;margin-right:8px;display:inline-flex}
+
+  .foot{text-align:center;margin-top:34px;padding-top:22px;border-top:1px solid var(--line)}
+  .reset{background:none;border:1px solid var(--line);color:var(--plum-soft);border-radius:100px;padding:9px 18px;font-family:'Nunito';font-weight:700;font-size:.84rem;cursor:pointer;transition:.15s}
+  .reset:hover{border-color:var(--rose-deep);color:var(--rose-deep)}
+  .love{margin-top:16px;font-family:'Fraunces',serif;font-style:italic;font-size:.95rem;color:var(--plum-soft)}
+
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="eyebrow">Escapade romantique · en EV4</div>
+  <h1>Notre road trip<span class="yr">2 – 11 août 2026</span></h1>
+  <p class="subtitle">Québec → Bruce → Niagara → Toronto, à deux ✦</p>
+  <div class="countdown">
+    <span class="num" id="cd-num">—</span>
+    <span class="lbl" id="cd-lbl">avant le départ</span>
+  </div>
+</header>
+
+<div class="progress-box">
+  <div class="progress-head">
+    <span>Notre aventure</span>
+    <span id="prog-text">0 / 0 activités</span>
+  </div>
+  <div class="track"><div class="fill" id="prog-fill"></div></div>
+</div>
+
+<nav class="tabs" aria-label="Jours du voyage">
+  <div class="tabs-inner" id="tabs" role="tablist"></div>
+</nav>
+
+<main class="wrap">
+  <section class="day" id="day-panel" role="tabpanel"></section>
+
+  <div class="section-label">À savoir</div>
+  <div class="info">
+    <div class="info-card">
+      <h4>🗓️ Passe Canada fort</h4>
+      <p>Vos dates (jusqu'au 7 sept) donnent l'entrée gratuite aux parcs (péninsule Bruce, île Flowerpot) et 25 % de rabais sur le camping. Le stationnement reste payant là où il est requis.</p>
+    </div>
+    <div class="info-card">
+      <h4>🎟️ À réserver</h4>
+      <p>Camping du lac Cyprus ✓ · Skylon Tower ✓ (N° NETTHJZU8). Encore à faire : bateau Flowerpot, stationnement Lion's Head, billets Centrale, traversier Îles de Toronto. Liens directs sur chaque carte d'activité ci-dessus, ou regroupés ici :</p>
+      <a class="maplink info-map" href="https://cruises.bruceanchor.com/schedule-and-prices/" target="_blank" rel="noopener">🎟️ Bateau Flowerpot</a>
+      <a class="maplink info-map" href="http://lionsheadparking.ca/" target="_blank" rel="noopener">🎟️ Stationnement Lion's Head</a>
+      <a class="maplink info-map" href="https://www.niagaraparks.com/visit/attractions/niagara-parks-power-station" target="_blank" rel="noopener">🎟️ Billets Centrale</a>
+      <a class="maplink info-map" href="https://www.toronto.ca/explore-enjoy/parks-gardens-beaches/toronto-island-park/toronto-island-park-ferry-tickets/" target="_blank" rel="noopener">🎟️ Traversier Îles</a>
+    </div>
+    <div class="info-card">
+      <h4>🔋 Recharge du EV4</h4>
+      <p>Bruce : bornes gratuites fiables au 20 Head St à Tobermory; rapides au Centre communautaire (parfois en panne — plan B). Wiarton plus au sud. Camping non électrifié : arrivez chargés. Sur la route Bruce → Niagara, appoints à Owen Sound / région de Hamilton.</p>
+    </div>
+    <div class="info-card">
+      <h4>🏨 Vos hôtels</h4>
+      <p>Grand Persepolis Inn — 6032 Lundy's Ln, Niagara (nuit du 7). Stay Inn Express — 650 Evans Ave., Etobicoke (8–11 août).</p>
+      <a class="maplink info-map" href="https://www.google.com/maps/search/?api=1&amp;query=Grand+Persepolis+Inn+Niagara+Falls" target="_blank" rel="noopener">📍 Grand Persepolis Inn</a>
+    </div>
+    <div class="info-card">
+      <h4>🚗 Toronto en métro</h4>
+      <p>Stationnez le EV4 au garage incitatif de la station Kipling (avant 9 h). Payez en PRESTO ou sans contact; le laissez-passer journalier vaut le coup. La Ligne 2 mène partout, dont directement à Greektown.</p>
+    </div>
+    <div class="info-card">
+      <h4>🗓️ Fermé le lundi (Toronto)</h4>
+      <p>TIFF Bell Lightbox, le Musée des beaux-arts (AGO) et le St. Lawrence Market ferment le lundi — d'où la journée magasinage/quartiers le 10 (l'outlet et Kensington restent ouverts).</p>
+    </div>
+  </div>
+
+  <div class="foot">
+    <button class="reset" id="reset">Réinitialiser notre progression</button>
+    <p class="love">Fais-en un voyage magique, vous deux 🦄</p>
+  </div>
+</main>
+
+<script>
+const BOOK = {
+  flowerpot:"https://cruises.bruceanchor.com/schedule-and-prices/",
+  lions:"http://lionsheadparking.ca/",
+  power:"https://www.niagaraparks.com/visit/attractions/niagara-parks-power-station",
+  skylon:"https://www.skylonreservations.com/online_reservations/lQUFeuIg9KPgZGNYxUGhOw",
+  islands:"https://www.toronto.ca/explore-enjoy/parks-gardens-beaches/toronto-island-park/toronto-island-park-ferry-tickets/"
+};
+
+const MAP = {
+  cyprus:"https://maps.google.com/?cid=12663461112118262412",
+  grotto:"https://maps.google.com/?cid=17050003504979823652",
+  singing:"https://maps.google.com/?cid=4132156685943241907",
+  tobermory:"https://maps.google.com/?cid=6135689455596098107",
+  charge:"https://maps.google.com/?cid=15822229086127118136",
+  lions:"https://maps.google.com/?cid=11510031571406304725",
+  persepolis:"https://www.google.com/maps/search/?api=1&query=Grand+Persepolis+Inn+Niagara+Falls",
+  power:"https://www.google.com/maps/search/?api=1&query=Niagara+Parks+Power+Station",
+  skylon:"https://www.google.com/maps/search/?api=1&query=Skylon+Tower+Niagara+Falls",
+  cn:"https://maps.google.com/?cid=1580157384328508801",
+  ripley:"https://maps.google.com/?cid=10209407575645757757",
+  tiff:"https://maps.google.com/?cid=5721766538735862166",
+  ferry:"https://maps.google.com/?cid=5275878604996102503",
+  distillery:"https://maps.google.com/?cid=14116297585565526550",
+  kensington:"https://maps.google.com/?cid=5128844828273795084",
+  danforth:"https://www.google.com/maps/search/Taste+of+the+Danforth+Greektown+Toronto",
+  harbour:"https://www.google.com/maps/search/Harbourfront+Centre+Toronto",
+  outlets:"https://www.google.com/maps/search/?api=1&query=Toronto+Premium+Outlets+13850+Steeles+Ave+Halton+Hills"
+};
+
+const DAYS = [
+  { key:"a2", d:"Dim", date:"2 août", title:"En route vers l'ouest",
+    sub:"Départ de St-Agapit → dodo au hasard",
+    stops:[
+      {id:"depart-qc", time:"Matin", name:"Départ de St-Agapit", note:"Cap vers l'ouest. La route est longue — planifiez vos arrêts de recharge le long du corridor (Montréal, autoroute 401)."},
+      {id:"dodo", time:"Soir", name:"Dodo « au hasard » en EV4", note:"Trouvez un coin tranquille et sécuritaire à mi-chemin. Mode utilitaire (V2L) pour une lumière ou un ventilo, modérément. Stationnez bien à plat."}
+    ]},
+  { key:"a3", d:"Lun", date:"3 août", title:"Arrivée — péninsule Bruce",
+    sub:"Installation au lac Cyprus",
+    stops:[
+      {id:"cyprus", time:"Après-midi", name:"Camping du lac Cyprus", note:"Montez le camp — votre base pour 4 nuits. Non électrifié : arrivez chargés. Blocs sanitaires propres avec douches.", map:MAP.cyprus},
+      {id:"singing", time:"16 h", name:"Singing Sands", tags:[["romantic","Romantique"]], note:"Plage peu profonde, eau chaude — parfait après la route. On marche 300 m dans le lac. Coucher de soleil.", map:MAP.singing}
+    ]},
+  { key:"a4", d:"Mar", date:"4 août", title:"La Grotte & Indian Head Cove",
+    sub:"Le clou du voyage — à pied du camping",
+    stops:[
+      {id:"grotto", time:"Tôt le matin", name:"La Grotte & Indian Head Cove", tags:[["romantic","Romantique"]], note:"Partez tôt pour battre les foules (vous marchez du camping, sans réservation de stationnement). Eau turquoise, grotte marine. Baignade à vos risques : eau glaciale, vagues fortes, aucun sauveteur.", map:MAP.grotto},
+      {id:"bruce-trail", time:"Après-midi", name:"Sentier Bruce (falaises)", note:"Prolongez le long des falaises de la baie Georgienne, puis retour tranquille au camp."}
+    ]},
+  { key:"a5", d:"Mer", date:"5 août", title:"Île Flowerpot & Tobermory",
+    sub:"Bateau le matin, recharge en ville",
+    stops:[
+      {id:"flowerpot", time:"Matin", name:"Île Flowerpot (bateau)", tags:[["romantic","Romantique"]], note:"Bateau à fond de verre depuis Tobermory (Blue Heron / Bruce Anchor). Tour « débarquement » : ~3 h sur l'île — cheminées de roche, phare, épaves du port. C'est le passager lui-même qui doit réserver (pas un tiers).", map:MAP.tobermory, book:BOOK.flowerpot, bookLabel:"Réserver — Bruce Anchor"},
+      {id:"tober-charge", time:"Après-midi", name:"Tobermory + recharge", tags:[["food","Pas cher"]], note:"Branchez le EV4 (bornes gratuites au 20 Head St, ou rapides au Centre communautaire). Fish & chips au port, phare Big Tub.", map:MAP.charge}
+    ]},
+  { key:"a6", d:"Jeu", date:"6 août", title:"Lion's Head",
+    sub:"Falaises spectaculaires au sud",
+    stops:[
+      {id:"lions", time:"Journée", name:"Lion's Head (belvédère)", tags:[["romantic","Romantique"]], note:"~40 min au sud. Des vues aussi belles que la Grotte, moitié moins de monde. Stationnement obligatoire par réservation (créneau 4 h; le sentier prend ~3 h 30).", map:MAP.lions, book:BOOK.lions, bookLabel:"Réserver le stationnement"}
+    ]},
+  { key:"a7", d:"Ven", date:"7 août", title:"Route vers Niagara + la Centrale",
+    sub:"Bruce → Niagara Falls (~4 h 30)",
+    stops:[
+      {id:"drive-niag", time:"Matin", name:"Route Bruce → Niagara", note:"Départ tôt du lac Cyprus. Longue route — recharge en chemin (Owen Sound, région de Hamilton)."},
+      {id:"persepolis", time:"Après-midi", name:"Grand Persepolis Inn", note:"Enregistrement à votre hôtel de Niagara (6032 Lundy's Ln), stationnement gratuit.", map:MAP.persepolis},
+      {id:"power", time:"Soirée", name:"Centrale + bobine Tesla ⚡", tags:[["spark","Coup de cœur"]], note:"Niagara Parks Power Station au soir : spectacle « Currents », démonstration de la bobine Tesla, et les chutes illuminées vues du tunnel (180 pi sous terre). Ouvert vendredi jusqu'à 22 h 30. Réservation en ligne recommandée en haute saison.", map:MAP.power, book:BOOK.power, bookLabel:"Billets — Niagara Parks"}
+    ]},
+  { key:"a8", d:"Sam", date:"8 août", title:"Dîner-buffet à la tour → Toronto",
+    sub:"Niagara au dîner, Toronto en après-midi",
+    stops:[
+      {id:"skylon", time:"12 h 00", name:"Summit Suite Buffet — Skylon Tower", tags:[["romantic","Romantique"]], note:"Réservation confirmée ✓ N° NETTHJZU8, 2 convives, 775 pi au-dessus des chutes. Arrivez 15 min d'avance à l'accueil (retard = risque d'annulation après 15 min). Réservation de 90 min. Accès inclus au Ride-to-the-Top et aux terrasses d'observation après le repas.", map:MAP.skylon, book:BOOK.skylon, bookLabel:"Gérer la réservation"},
+      {id:"drive-tor", time:"14 h 00", name:"Route Niagara → Toronto", note:"~1 h 30–2 h. Enregistrement au Stay Inn Express, puis stationnement à la station Kipling pour le métro."},
+      {id:"tiff", time:"Après-midi", name:"TIFF Bell Lightbox", tags:[["cine","Cinéphile"]], note:"Le QG du festival du film — taillé pour toi. Ferme à 17 h, donc file-y en arrivant.", transit:"Kipling → L2 → St. George → L1", map:MAP.tiff},
+      {id:"ripley", time:"Fin d'après-midi", name:"Ripley's Aquarium", tags:[["romantic","Romantique"]], note:"Le tunnel des requins vaut le détour. Ouvert tard, parfait pour combler l'horaire avant la soirée.", map:MAP.ripley},
+      {id:"harbour", time:"Coucher du soleil", name:"Harbourfront", tags:[["romantic","Romantique"]], note:"Petite balade au bord de l'eau pour finir la soirée en douceur.", map:MAP.harbour}
+    ]},
+  { key:"a9", d:"Dim", date:"9 août", title:"Îles de Toronto & Taste of the Danforth",
+    sub:"Traversier le jour, festival le soir",
+    festival:true,
+    stops:[
+      {id:"islands", time:"Après-midi", name:"Îles de Toronto", tags:[["romantic","Romantique"]], note:"Traversier au Jack Layton Terminal (Bay & Queens Quay). Vélos, plages, la plus belle vue sur la skyline. Billets d'avance recommandés en haute saison.", map:MAP.ferry, book:BOOK.islands, bookLabel:"Billets — traversier"},
+      {id:"danforth", time:"18 h", name:"Taste of the Danforth", tags:[["festival","Festival"],["food","Pas cher"]], note:"Ligne 2 directe jusqu'à Broadview/Chester. Souper pas cher — souvlaki, grillades — musique jusqu'à 22 h.", map:MAP.danforth}
+    ]},
+  { key:"a10", d:"Lun", date:"10 août", title:"Magasinage & quartiers à flâner",
+    sub:"Outlet le matin (EV4), Kensington l'après-midi (métro)",
+    stops:[
+      {id:"outlets", time:"Matin", name:"Toronto Premium Outlets", tags:[["romantic","Magasinage"]], note:"Reprenez le EV4 à Kipling pour la route (~45–50 min vers Halton Hills). Grand outlet extérieur — Gucci, Coach, Lululemon, Hugo Boss et bien d'autres. Comptez 2–3 h. Redéposez la voiture à Kipling en revenant avant de reprendre le métro pour l'après-midi.", map:MAP.outlets},
+      {id:"kensington", time:"15 h", name:"Kensington Market & Chinatown", tags:[["food","Pas cher"]], note:"Quartiers colorés, gratuits à explorer, pleins de petites bouchées internationales abordables et boutiques indépendantes (friperies, disquaires, artisanat).", transit:"505 Dundas ouest", map:MAP.kensington}
+    ]},
+  { key:"a11", d:"Mar", date:"11 août", title:"Départ en douceur",
+    sub:"Un dernier tour au Distillery District avant la route",
+    stops:[
+      {id:"distillery", time:"Matinée", name:"Distillery District", tags:[["romantic","Romantique"]], note:"Rues pavées victoriennes, galeries d'art, cafés — une dernière balade romantique avant de reprendre la route. Pas besoin d'y passer des heures.", map:MAP.distillery},
+      {id:"depart-tor", time:"Fin de matinée", name:"Dernière matinée à Toronto", note:"Un dernier café, puis vous récupérez le EV4 à Kipling pour la route du retour. Bon voyage vers St-Agapit !"}
+    ]}
+];
+
+const STORE_KEY = "roadtrip2026:progress";
+let state = {}, memFallback = {}, current = 0, mode = "day", bonusIdx = 0;
+
+const RESERVATIONS = {
+  confirmed:[
+    {id:"res-cyprus", name:"Camping du lac Cyprus", when:"3–7 août · 4 nuits", note:"Confirmé — votre base sur la péninsule Bruce.", map:MAP.cyprus},
+    {id:"res-skylon", name:"Summit Suite Buffet — Skylon Tower", when:"8 août · 12 h 00", note:"N° NETTHJZU8 · 2 convives · 775 pi au-dessus des chutes · réservation de 90 min. Arrivez 15 min d'avance à l'accueil.", map:MAP.skylon, book:BOOK.skylon, bookLabel:"Gérer la réservation"},
+    {id:"res-islands", name:"Traversier — Îles de Toronto", when:"9 août", note:"Commande #5026436855 · billets PDF sur Drive.", map:MAP.ferry, book:"https://drive.google.com/file/d/1rJu3V_dIcPYuulySC4EuMDXDskR849N9/view?usp=drivesdk", bookLabel:"Mes billets (PDF)"}
+  ],
+  todo:[
+    {id:"tb-flowerpot", name:"Bateau — Île Flowerpot", when:"5 août · matin", note:"C'est le passager lui-même qui doit réserver (pas un tiers).", map:MAP.tobermory, book:BOOK.flowerpot, bookLabel:"Réserver — Bruce Anchor"},
+    {id:"tb-lions", name:"Stationnement — Lion's Head", when:"6 août", note:"Réservation obligatoire, créneau de 4 h (le sentier prend ~3 h 30).", map:MAP.lions, book:BOOK.lions, bookLabel:"Réserver le stationnement"},
+    {id:"tb-power", name:"Billets — Centrale (Niagara Parks Power Station)", when:"7 août · soirée", note:"Réservation en ligne recommandée en haute saison.", map:MAP.power, book:BOOK.power, bookLabel:"Billets — Niagara Parks"}
+  ]
+};
+
+const BONUS_REGIONS = [
+  { key:"bruce", label:"Bruce",
+    sub:"Alternatives tranquilles, moins fréquentées que la Grotte",
+    items:[
+      {id:"halfway", name:"Halfway Log Dump", tags:[["romantic","Romantique"],["free","Gratuit"]], note:"Plage de galets isolée sur le sentier Bruce, eau cristalline, bien moins de monde que la Grotte. Réservez le stationnement à l'avance en été.", map:"https://www.google.com/maps/search/?api=1&query=Halfway+Log+Dump&query_place_id=ChIJ07iA_bAHLU0RJRX2J9IeAN4"},
+      {id:"fathom", name:"Sentier du littoral — Fathom Five", tags:[["romantic","Romantique"],["free","Gratuit"]], note:"Marche gratuite avec vue sur les falaises de la baie Georgienne et les formations rocheuses, sans réservation de bateau.", map:"https://www.google.com/maps/search/?api=1&query=Fathom+Five+National+Marine+Park&query_place_id=ChIJoclxo_MKLU0RAeTfEhj_gfc"},
+      {id:"cabot", name:"Phare de Cabot Head", tags:[["romantic","Romantique"],["claude","Suggestion Claude"]], note:"Phare isolé au bout d'une route de gravier, très peu visité. Jolie vue tranquille sur la baie — parfait si vous cherchez du calme loin des foules.", map:"https://www.google.com/maps/search/?api=1&query=Cabot+Head+Lighthouse&query_place_id=ChIJAzJ31g3_LE0Rda-tp5AvxdQ"}
+    ]},
+  { key:"niagara", label:"Niagara",
+    sub:"Jardins et détours fleuris, sans faire la file",
+    items:[
+      {id:"butterfly", name:"Serre aux papillons", tags:[["romantic","Romantique"],["whimsy","Féerique"]], note:"Des centaines de papillons en liberté dans une serre tropicale — immersif, coloré, aucune barrière de langue. Billet requis (~22 $), inclus dans certains passes Niagara Parks.", map:"https://www.google.com/maps/search/?api=1&query=Butterfly+Conservatory+Niagara&query_place_id=ChIJDV43H9pc04kRXRdv0Ez5H7s"},
+      {id:"floralclock", name:"Horloge florale", tags:[["free","Gratuit"],["whimsy","Féerique"]], note:"Immense horloge florale et étang à koï — arrêt photo mignon et gratuit sur la route entre les jardins et Niagara-on-the-Lake.", map:"https://www.google.com/maps/search/?api=1&query=Floral+Clock+Niagara&query_place_id=ChIJHxWGCgpd04kRmPPYvNxG7vU"},
+      {id:"notl", name:"Niagara-on-the-Lake", tags:[["romantic","Romantique"],["claude","Suggestion Claude"]], note:"Village pittoresque et fleuri, rues à flâner, boutiques et jardins — une jolie balade d'après-midi tranquille, tout en visuel, sans besoin de parler beaucoup.", map:"https://www.google.com/maps/search/?api=1&query=Niagara-on-the-Lake&query_place_id=ChIJsQIX2RRf04kRwKIRfVRRAXY"},
+      {id:"qvp", name:"Queen Victoria Park", tags:[["romantic","Romantique"],["free","Gratuit"]], note:"Jardins gratuits juste au bord des chutes — une promenade paisible loin de la cohue de Clifton Hill.", map:"https://www.google.com/maps/search/?api=1&query=Queen+Victoria+Park+Niagara&query_place_id=ChIJefTaTQZD04kRzuh2lpwlV-A"}
+    ]},
+  { key:"toronto", label:"Toronto",
+    sub:"Pause visuelle entre deux stations de métro",
+    items:[
+      {id:"sugarbeach", name:"Sugar Beach", tags:[["romantic","Romantique"],["whimsy","Féerique"],["free","Gratuit"],["claude","Suggestion Claude"]], note:"Petite plage urbaine avec ses fameux parasols roses et chaises Muskoka — sable blanc, vue sur le port, super photogénique. Ça sent le coup de cœur pour vous deux.", map:"https://www.google.com/maps/search/?api=1&query=Sugar+Beach+Toronto&query_place_id=ChIJ5ejd3SXL1IkRirF5IsDyZe0"},
+      {id:"allangardens", name:"Serre Allan Gardens", tags:[["free","Gratuit"],["whimsy","Féerique"]], note:"Serre victorienne gratuite en plein centre-ville — fleurs, tortues, koï. Petite pause tranquille et gratuite.", map:"https://www.google.com/maps/search/?api=1&query=Allan+Gardens+Conservatory+Toronto&query_place_id=ChIJm4QC3UvL1IkRQghFCjz36Ww"},
+      {id:"musicgarden", name:"Toronto Music Garden", tags:[["romantic","Romantique"],["free","Gratuit"]], note:"Jardin thématique inspiré de Bach au bord du port — calme, romantique, jolie vue sur les bateaux.", map:"https://www.google.com/maps/search/?api=1&query=Toronto+Music+Garden&query_place_id=ChIJAQAAwCrL1IkR1Egy40ui0d4"},
+      {id:"graffiti", name:"Graffiti Alley", tags:[["whimsy","Féerique"],["free","Gratuit"]], note:"Ruelle d'art urbain coloré et changeant — parfaite pour des photos originales, à deux pas de Queen West.", map:"https://www.google.com/maps/search/?api=1&query=Graffiti+Alley+Toronto&query_place_id=ChIJva6UXtw0K4gRCN7UN6f0Srs"},
+      {id:"casaloma", name:"Casa Loma", tags:[["romantic","Romantique"],["whimsy","Féerique"],["claude","Suggestion Claude"]], note:"Château néo-gothique avec passages secrets, tours et jardins — le côté « conte de fées » qui devrait vous plaire. Visite autoguidée, aucune barrière de langue. Billet requis.", map:"https://www.google.com/maps/search/?api=1&query=Casa+Loma+Toronto&query_place_id=ChIJs6Elz500K4gRT1jWAsHIfGE"},
+      {id:"highpark", name:"High Park", tags:[["free","Gratuit"]], note:"Le plus grand parc de la ville — sentiers, étang Grenadier, belle balade si vous voulez de l'air entre deux activités.", map:"https://www.google.com/maps/search/?api=1&query=High+Park+Toronto&query_place_id=ChIJBfc2I9M1K4gRZ-4AoyXIvAE"},
+      {id:"yorkville", name:"Yorkville", tags:[["free","Gratuit"]], note:"Rues chics à flâner, jolies façades, vitrines et cafés — pour une pause shopping-vitrine sans destination précise.", map:"https://www.google.com/maps/search/?api=1&query=Yorkville+Toronto&query_place_id=ChIJe_Pth6U0K4gRVmnX4h0xMWg"},
+      {id:"arcadia", name:"Arcadia Earth", tags:[["romantic","Romantique"],["whimsy","Féerique"]], note:"Expo immersive et féerique : salles colorées, jeux de lumière, installations interactives — presque entièrement visuel et sensoriel, aucune barrière de langue. Le genre d'endroit taillé pour vos goûts (pense licornes et univers oniriques). Compter 1 h 30 à 2 h. Billet requis.", map:"https://www.google.com/maps/search/?api=1&query=Arcadia+Earth+Toronto+486+Front+St+W", book:"https://www.arcadiaearth.ca/toronto", bookLabel:"Billets — Arcadia Earth"},
+      {id:"speakeasy", name:"Prequel & Co. Apothecary", tags:[["romantic","Romantique"],["whimsy","Original"]], note:"Speakeasy caché derrière une façade d'apothicaire vintage — bougies, cocktails artisanaux, ambiance feutrée et confidentielle. Le genre d'endroit qu'on ne trouve pas par hasard.", map:"https://www.google.com/maps/search/?api=1&query=Prequel+%26+Co+Apothecary+1036+Queen+St+W+Toronto"}
+    ]}
+];
+
+async function loadState(){
+  try{ if(window.storage){ const r=await window.storage.get(STORE_KEY); if(r&&r.value) state=JSON.parse(r.value);} else { state=memFallback; } }
+  catch(e){ state=memFallback; }
+}
+async function saveState(){
+  memFallback=state;
+  try{ if(window.storage) await window.storage.set(STORE_KEY, JSON.stringify(state)); }catch(e){}
+}
+function allStops(){ return DAYS.flatMap(d=>[...d.stops, ...(d.optionalStops||[])]); }
+
+function renderTabs(){
+  const el=document.getElementById("tabs"); el.innerHTML="";
+  DAYS.forEach((day,i)=>{
+    const b=document.createElement("button");
+    b.className="tab"; b.setAttribute("role","tab"); b.setAttribute("aria-selected", mode==="day" && i===current);
+    b.innerHTML=`<span class="d">${day.d}</span>${day.date}`;
+    b.onclick=()=>{ mode="day"; current=i; renderTabs(); renderMain(); document.querySelector('.tabs').scrollIntoView({block:'start'}); };
+    el.appendChild(b);
+  });
+  const resBtn=document.createElement("button");
+  resBtn.className="tab"; resBtn.setAttribute("role","tab"); resBtn.setAttribute("aria-selected", mode==="res");
+  resBtn.innerHTML=`🎟️ Vos réservations`;
+  resBtn.onclick=()=>{ mode="res"; renderTabs(); renderMain(); document.querySelector('.tabs').scrollIntoView({block:'start'}); };
+  el.appendChild(resBtn);
+  const bonusBtn=document.createElement("button");
+  bonusBtn.className="tab"; bonusBtn.setAttribute("role","tab"); bonusBtn.setAttribute("aria-selected", mode==="bonus");
+  bonusBtn.innerHTML=`✨ Idées bonus`;
+  bonusBtn.onclick=()=>{ mode="bonus"; renderTabs(); renderMain(); document.querySelector('.tabs').scrollIntoView({block:'start'}); };
+  el.appendChild(bonusBtn);
+  const sel = mode==="res" ? resBtn : mode==="bonus" ? bonusBtn : el.children[current];
+  if(sel) sel.scrollIntoView({inline:'center',block:'nearest'});
+}
+
+function renderMain(){
+  if(mode==="bonus") renderBonus();
+  else if(mode==="res") renderReservations();
+  else renderDay();
+}
+
+function renderReservations(){
+  const el=document.getElementById("day-panel");
+  const card=(s)=>{
+    const book=s.book?`<a class="booklink" href="${s.book}" target="_blank" rel="noopener">🎟️ ${s.bookLabel||'Réserver'}</a>`:"";
+    return `<div class="card">
+      <div class="card-top">
+        <div class="headings"><div class="time">${s.when}</div><div class="name">${s.name}</div></div>
+      </div>
+      <div class="note">${s.note}</div>
+      <div class="meta">${book}<a class="maplink" href="${s.map}" target="_blank" rel="noopener">📍 Carte</a></div>
+    </div>`;
+  };
+  let html=`<div class="day-title">Vos réservations 🎟️</div><div class="day-sub"><span class="dot">✦</span> Tout au même endroit — confirmées et à faire</div>`;
+  html+=`<div class="day-sub" style="margin:20px 0 12px;color:var(--mint-txt,#2f7d5b)">✓ Confirmées</div><div class="bonus-grid">`;
+  RESERVATIONS.confirmed.forEach(s=>{ html+=card(s); });
+  html+=`</div>`;
+  html+=`<div class="day-sub" style="margin:26px 0 12px">À réserver</div><div class="bonus-grid">`;
+  RESERVATIONS.todo.forEach(s=>{ html+=card(s); });
+  html+=`</div>`;
+  el.innerHTML=html;
+}
+
+function renderBonus(){
+  const el=document.getElementById("day-panel");
+  let html=`<div class="day-title">Idées bonus 🦄✨</div><div class="day-sub"><span class="dot">✦</span> À piger si une journée a de la place — rien n'est obligatoire</div>`;
+  html+=`<div class="subtabs" role="tablist">`;
+  BONUS_REGIONS.forEach((r,i)=>{
+    html+=`<button class="subtab" role="tab" data-idx="${i}" aria-selected="${i===bonusIdx}">${r.label}</button>`;
+  });
+  html+=`</div>`;
+  const region=BONUS_REGIONS[bonusIdx];
+  html+=`<div class="day-sub" style="margin-bottom:16px">${region.sub}</div><div class="bonus-grid">`;
+  region.items.forEach(s=>{
+    const done=!!state[s.id];
+    const tags=(s.tags||[]).map(t=>`<span class="tag ${t[0]}">${t[1]}</span>`).join("");
+    const book=s.book?`<a class="booklink" href="${s.book}" target="_blank" rel="noopener">🎟️ ${s.bookLabel||'Réserver'}</a>`:"";
+    html+=`<div class="card">
+      <div class="card-top">
+        <input type="checkbox" class="chk" data-id="${s.id}" ${done?'checked':''} aria-label="Marquer ${s.name} comme fait">
+        <div class="headings"><div class="name">${s.name}</div><div>${tags}</div></div>
+      </div>
+      <div class="note">${s.note}</div>
+      <div class="meta">${book}<a class="maplink" href="${s.map}" target="_blank" rel="noopener">📍 Carte</a></div>
+    </div>`;
+  });
+  html+=`</div>`;
+  el.innerHTML=html;
+  el.querySelectorAll(".subtab").forEach(btn=>{
+    btn.addEventListener("click", e=>{ bonusIdx=parseInt(e.currentTarget.dataset.idx); renderBonus(); });
+  });
+  el.querySelectorAll(".chk").forEach(c=>{
+    c.addEventListener("change", async e=>{
+      const id=e.target.dataset.id;
+      if(e.target.checked) state[id]=true; else delete state[id];
+      await saveState(); renderBonus();
+    });
+  });
+}
+
+function renderStop(s){
+  const done=!!state[s.id];
+  const tags=(s.tags||[]).map(t=>`<span class="tag ${t[0]}">${t[1]}</span>`).join("");
+  const transit=s.transit?`<span class="transit">🚇 <b>${s.transit}</b></span>`:"";
+  const map=s.map?`<a class="maplink" href="${s.map}" target="_blank" rel="noopener">📍 Carte</a>`:"";
+  const book=s.book?`<a class="booklink" href="${s.book}" target="_blank" rel="noopener">🎟️ ${s.bookLabel||'Réserver'}</a>`:"";
+  return `<div class="stop ${done?'done':''}"><div class="card ${done?'done':''}">
+      <div class="card-top">
+        <input type="checkbox" class="chk" data-id="${s.id}" ${done?'checked':''} aria-label="Marquer ${s.name} comme fait">
+        <div class="headings"><div class="time">${s.time}</div><div class="name">${s.name}</div><div>${tags}</div></div>
+      </div>
+      <div class="note">${s.note}</div>
+      ${(transit||map||book)?`<div class="meta">${transit}${book}${map}</div>`:""}
+    </div></div>`;
+}
+
+function renderDay(){
+  const day=DAYS[current], el=document.getElementById("day-panel");
+  let html=`<div class="day-title">${day.title}</div><div class="day-sub"><span class="dot">✦</span> ${day.sub}</div>`;
+  if(day.festival){
+    html+=`<div class="festival"><div class="fx">Événement du week-end</div>
+      <h3>Taste of the Danforth revient !</h3>
+      <p>Après deux ans d'absence, le plus grand festival de rue grec au Canada est de retour les 7–9 août sur Danforth (Broadview → Jones). Gratuit, animé, délicieux.</p></div>`;
+  }
+  html+=`<div class="timeline">`;
+  day.stops.forEach(s=>{ html+=renderStop(s); });
+  html+=`</div>`;
+  if(day.optionalStops && day.optionalStops.length){
+    html+=`<div class="day-optional-label">✨ Si vous avez le temps</div><div class="timeline timeline-optional">`;
+    day.optionalStops.forEach(s=>{ html+=renderStop(s); });
+    html+=`</div>`;
+  }
+  el.innerHTML=html;
+  el.querySelectorAll(".chk").forEach(c=>{
+    c.addEventListener("change", async e=>{
+      const id=e.target.dataset.id;
+      if(e.target.checked) state[id]=true; else delete state[id];
+      await saveState(); renderDay(); renderProgress();
+    });
+  });
+}
+
+function renderProgress(){
+  const stops=allStops(), total=stops.length, done=stops.filter(s=>state[s.id]).length;
+  const pct=total?Math.round(done/total*100):0;
+  document.getElementById("prog-fill").style.width=pct+"%";
+  document.getElementById("prog-text").textContent=`${done} / ${total} activités`;
+}
+
+function renderCountdown(){
+  const trip=new Date("2026-08-02T00:00:00-04:00"), now=new Date();
+  const diff=Math.ceil((trip-now)/(1000*60*60*24));
+  const n=document.getElementById("cd-num"), l=document.getElementById("cd-lbl");
+  if(diff>1){ n.textContent="J-"+diff; l.textContent="avant le départ"; }
+  else if(diff===1){ n.textContent="J-1"; l.textContent="on part demain !"; }
+  else if(diff===0){ n.textContent="Aujourd'hui"; l.textContent="bon voyage ✦"; }
+  else { n.textContent="✦"; l.textContent="souvenirs en cours"; }
+}
+
+document.getElementById("reset").addEventListener("click", async ()=>{
+  state={}; await saveState(); renderMain(); renderProgress();
+});
+
+(async function init(){
+  await loadState();
+  renderCountdown(); renderTabs(); renderMain(); renderProgress();
+})();
+</script>
+</body>
+</html>
