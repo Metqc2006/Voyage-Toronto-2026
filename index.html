@@ -170,6 +170,7 @@
       <h4>🏨 Vos hôtels</h4>
       <p>Grand Persepolis Inn — 6032 Lundy's Ln, Niagara (nuit du 7). Stay Inn Express — 650 Evans Ave., Etobicoke (8–11 août).</p>
       <a class="maplink info-map" href="https://www.google.com/maps/search/?api=1&amp;query=Grand+Persepolis+Inn+Niagara+Falls" target="_blank" rel="noopener">📍 Grand Persepolis Inn</a>
+      <a class="maplink info-map" href="https://www.google.com/maps/search/?api=1&amp;query=Stay+Inn+Express+650+Evans+Ave+Etobicoke" target="_blank" rel="noopener">📍 Stay Inn Express</a>
     </div>
     <div class="info-card">
       <h4>🚗 Toronto en métro</h4>
@@ -204,6 +205,7 @@ const MAP = {
   charge:"https://maps.google.com/?cid=15822229086127118136",
   lions:"https://maps.google.com/?cid=11510031571406304725",
   persepolis:"https://www.google.com/maps/search/?api=1&query=Grand+Persepolis+Inn+Niagara+Falls",
+  stayinn:"https://www.google.com/maps/search/?api=1&query=Stay+Inn+Express+650+Evans+Ave+Etobicoke",
   power:"https://www.google.com/maps/search/?api=1&query=Niagara+Parks+Power+Station",
   skylon:"https://www.google.com/maps/search/?api=1&query=Skylon+Tower+Niagara+Falls",
   cn:"https://maps.google.com/?cid=1580157384328508801",
@@ -251,14 +253,14 @@ const DAYS = [
     sub:"Bruce → Niagara Falls (~4 h 30)",
     stops:[
       {id:"drive-niag", time:"Matin", name:"Route Bruce → Niagara", note:"Départ tôt du lac Cyprus. Longue route — recharge en chemin (Owen Sound, région de Hamilton)."},
-      {id:"persepolis", time:"Après-midi", name:"Grand Persepolis Inn", note:"Enregistrement à votre hôtel de Niagara (6032 Lundy's Ln), stationnement gratuit.", map:MAP.persepolis},
+      {id:"persepolis", time:"Après-midi", name:"Grand Persepolis Inn", tags:[["romantic","Réservé"]], note:"Réservation confirmée ✓ Hotels.com #72075254994789, chambre pour lune de miel, 2 adultes. Arrivée dès 15 h (jusqu'à 2 h 30).", map:MAP.persepolis},
       {id:"power", time:"Soirée", name:"Centrale + bobine Tesla ⚡", tags:[["spark","Coup de cœur"]], note:"Niagara Parks Power Station au soir : spectacle « Currents », démonstration de la bobine Tesla, et les chutes illuminées vues du tunnel (180 pi sous terre). Ouvert vendredi jusqu'à 22 h 30. Réservation en ligne recommandée en haute saison.", map:MAP.power, book:BOOK.power, bookLabel:"Billets — Niagara Parks"}
     ]},
   { key:"a8", d:"Sam", date:"8 août", title:"Dîner-buffet à la tour → Toronto",
     sub:"Niagara au dîner, Toronto en après-midi",
     stops:[
       {id:"skylon", time:"12 h 00", name:"Summit Suite Buffet — Skylon Tower", tags:[["romantic","Romantique"]], note:"Réservation confirmée ✓ N° NETTHJZU8, 2 convives, 775 pi au-dessus des chutes. Arrivez 15 min d'avance à l'accueil (retard = risque d'annulation après 15 min). Réservation de 90 min. Accès inclus au Ride-to-the-Top et aux terrasses d'observation après le repas.", map:MAP.skylon, book:BOOK.skylon, bookLabel:"Gérer la réservation"},
-      {id:"drive-tor", time:"14 h 00", name:"Route Niagara → Toronto", note:"~1 h 30–2 h. Enregistrement au Stay Inn Express, puis stationnement à la station Kipling pour le métro."},
+      {id:"drive-tor", time:"14 h 00", name:"Route Niagara → Toronto", tags:[["romantic","Réservé"]], note:"~1 h 30–2 h. Enregistrement au Stay Inn Express ✓ confirmé (Hotels.com #72075254494754, chambre standard), puis stationnement à la station Kipling pour le métro.", map:MAP.stayinn},
       {id:"tiff", time:"Après-midi", name:"TIFF Bell Lightbox", tags:[["cine","Cinéphile"]], note:"Le QG du festival du film — taillé pour toi. Ferme à 17 h, donc file-y en arrivant.", transit:"Kipling → L2 → St. George → L1", map:MAP.tiff},
       {id:"ripley", time:"Fin d'après-midi", name:"Ripley's Aquarium", tags:[["romantic","Romantique"]], note:"Le tunnel des requins vaut le détour. Ouvert tard, parfait pour combler l'horaire avant la soirée.", map:MAP.ripley},
       {id:"harbour", time:"Coucher du soleil", name:"Harbourfront", tags:[["romantic","Romantique"]], note:"Petite balade au bord de l'eau pour finir la soirée en douceur.", map:MAP.harbour}
@@ -289,7 +291,9 @@ let state = {}, memFallback = {}, current = 0, mode = "day", bonusIdx = 0;
 
 const RESERVATIONS = {
   confirmed:[
-    {id:"res-cyprus", name:"Camping du lac Cyprus", when:"3–7 août · 4 nuits", note:"Confirmé — votre base sur la péninsule Bruce.", map:MAP.cyprus},
+    {id:"res-cyprus", name:"Camping du lac Cyprus", when:"3–7 août · 4 nuits", note:"⚠️ 4 emplacements différents pour 4 nuits — il faut déplacer le camp chaque jour (départ 11 h, arrivée 14 h au nouveau site) : • 3–4 août : N° INPC25-22707365B1, emplacement 233 (Tamaracks) • 4–5 août : N° INPC25-26254799B1, emplacement 179 • 5–6 août : N° INPC25-22707365B2, emplacement 236 (Tamaracks) • 6–7 août : N° INPC25-22707365B2, emplacement 221 (Tamaracks)", map:MAP.cyprus},
+    {id:"res-persepolis", name:"Grand Persepolis Inn", when:"7–8 août · 1 nuit", note:"Hotels.com — itinéraire #72075254994789 · Chambre pour lune de miel · 2 adultes, non-fumeurs. Arrivée dès 15 h (jusqu'à 2 h 30), départ 11 h. Annulation gratuite jusqu'au 6 août 18 h 00 (heure locale), sinon 100 % du montant est facturé.", map:MAP.persepolis},
+    {id:"res-stayinn", name:"Stay Inn Express Toronto", when:"8–11 août · 3 nuits", note:"Hotels.com — itinéraire #72075254494754 · Chambre standard · 2 adultes, non-fumeurs. Arrivée dès 15 h (jusqu'à minuit), départ 11 h. Annulation gratuite jusqu'au 7 août 15 h 00, sinon frais équivalant à la 1ʳᵉ nuit + taxes.", map:MAP.stayinn},
     {id:"res-skylon", name:"Summit Suite Buffet — Skylon Tower", when:"8 août · 12 h 00", note:"N° NETTHJZU8 · 2 convives · 775 pi au-dessus des chutes · réservation de 90 min. Arrivez 15 min d'avance à l'accueil.", map:MAP.skylon, book:BOOK.skylon, bookLabel:"Gérer la réservation"},
     {id:"res-islands", name:"Traversier — Îles de Toronto", when:"9 août", note:"Commande #5026436855 · billets PDF sur Drive.", map:MAP.ferry, book:"https://drive.google.com/file/d/1rJu3V_dIcPYuulySC4EuMDXDskR849N9/view?usp=drivesdk", bookLabel:"Mes billets (PDF)"}
   ],
